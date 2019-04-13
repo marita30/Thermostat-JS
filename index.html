@@ -12,16 +12,32 @@
 
      <section>
 
-
               <h1 id ="temperature"></h1>
               <h2>
                 <button id="temp-up">+</button>
                 <button id="temp-down">-</button>
-                <button id="temperature-reset">reset</button>
-                power saving mode is <span id="power-saving-status">on</span>
-                <button id="powersaving-on">PSM on</button>
-                <button id="powersaving-off">PSM off</button>
+                <button id="temp-reset">reset</button>
+                power saving mode is <span id="power-saving">on</span>
+                <button id="psm-on">PSM on</button>
+                <button id="psm-off">PSM off</button>
               </h2>
     </section>
+
+      <section>
+  <h1>Current temperature: <span id="current-temperature"></span></h1>
+  <select id="current-city">
+    <option value="london">London</option>
+    <option value="newyork">New York</option>
+    <option value="paris">Paris</option>
+    <option value="tokyo">Tokyo</option>
+  </select>
+</section>
+
+<section>
+    <input id="write-city" type="text" placeholder="Enter a city"></input>
+    <input id="submit" type="submit"></input>
+</section>
+
+
   </body>
 </html>
