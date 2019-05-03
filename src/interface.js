@@ -1,7 +1,12 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  updateTemperature();
-   displayWeather('London');
+  $.get('http://localhost:4567', function(data){
+    console.log (data.temperature)
+    thermostat.temperature = data.temperature
+    updateTemperature();
+  });
+   displayWeather('London'); 
+
 
   $('#temp-up').click(function() {
     thermostat.up();
@@ -11,6 +16,7 @@ $(document).ready(function() {
   $('#temp-down').click(function() {
     thermostat.down();
     updateTemperature();
+
   });
 
   $('#temp-reset').click(function() {
@@ -45,6 +51,7 @@ $(document).ready(function() {
   function updateTemperature() {
     $('#temperature').text(thermostat.getCurrentTemperature());
     $('#temperature').attr('class', thermostat.energyUsage());
+    $.post('http://localhost:4567', {temp: thermostat.getCurrentTemperature()});
   }
 
   function displayWeather(city){
